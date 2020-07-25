@@ -1,0 +1,61 @@
+{
+  "name": "Document",
+  "fields": [
+    {
+      "fieldName": "fileName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "documentType",
+      "fieldType": "DocumentType",
+      "fieldValues": "PROFILE (Profile),BLOG (Blog),PASSPORT (Passport),CV (Cv),ENTRY (Entry)",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "documentFormat",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "uploadDir",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "user",
+      "otherEntityRelationshipName": "document",
+      "relationshipName": "user",
+      "otherEntityField": "login"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "blog",
+      "otherEntityRelationshipName": "document",
+      "relationshipName": "blog",
+      "otherEntityField": "name"
+    }
+  ],
+  "changelogDate": "20200725065358",
+  "entityTableName": "document",
+  "dto": "no",
+  "pagination": "pagination",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

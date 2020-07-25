@@ -1,0 +1,26 @@
+{
+  "blogSpringAngularApp": {
+    "entry": {
+      "home": {
+        "title": "Entries",
+        "createLabel": "Maak een nieuwe Entry",
+        "createOrEditLabel": "Maak of wijzig een Entry",
+        "notFound": "No Entries found"
+      },
+      "created": "A new Entry is created with identifier {{ param }}",
+      "updated": "A Entry is updated with identifier {{ param }}",
+      "deleted": "A Entry is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Bent u zeker dat u Entry {{ id }} wilt verwijderen?"
+      },
+      "detail": {
+        "title": "Entry"
+      },
+      "title": "Title",
+      "content": "Content",
+      "date": "Date",
+      "blog": "Blog",
+      "tag": "Tag"
+    }
+  }
+}

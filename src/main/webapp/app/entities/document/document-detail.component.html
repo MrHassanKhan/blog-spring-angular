@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="document">
+            <h2><span jhiTranslate="blogSpringAngularApp.document.detail.title">Document</span> {{ document.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="blogSpringAngularApp.document.fileName">File Name</span></dt>
+                <dd>
+                    <span>{{ document.fileName }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogSpringAngularApp.document.documentType">Document Type</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'blogSpringAngularApp.DocumentType.' + document.documentType }}">{{ document.documentType }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogSpringAngularApp.document.documentFormat">Document Format</span></dt>
+                <dd>
+                    <span>{{ document.documentFormat }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogSpringAngularApp.document.uploadDir">Upload Dir</span></dt>
+                <dd>
+                    <span>{{ document.uploadDir }}</span>
+                </dd>
+                <dt><span jhiTranslate="blogSpringAngularApp.document.user">User</span></dt>
+                <dd>
+                    {{ document.user?.login }}
+                </dd>
+                <dt><span jhiTranslate="blogSpringAngularApp.document.blog">Blog</span></dt>
+                <dd>
+                    <div *ngIf="document.blog">
+                        <a [routerLink]="['/blog', document.blog?.id, 'view']">{{ document.blog?.name }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/document', document.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

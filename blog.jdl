@@ -1,0 +1,44 @@
+entity Blog {
+  name String required minlength(3),
+  description String required minlength(2)
+}
+
+entity Entry {
+  title String required,
+  content TextBlob required,
+  date Instant required
+}
+
+entity Tag {
+  name String required minlength(2)
+}
+
+enum DocumentType {
+	PROFILE (Profile),
+  BLOG (Blog),
+  PASSPORT (Passport),
+  CV (Cv),
+  ENTRY (Entry)
+}
+
+entity Document {
+ fileName String required,
+ documentType DocumentType required,
+ documentFormat String required,
+ uploadDir String required
+}
+
+relationship ManyToOne {
+  Blog{user(login)} to User,
+  Document{user(login)} to User,
+  Document{blog(name)} to Blog,
+  Entry{blog(name)} to Blog
+}
+
+relationship ManyToMany {
+  Entry{tag(name)} to Tag{entry}
+}
+
+paginate all with pagination
+
+// service all with serviceImpl
